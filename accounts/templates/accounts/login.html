@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="card m-5">
+  <h5 class="card-header">Login</h5>
+  <div class="card-body">
+      <form method="post">
+          {% csrf_token %}
+          {% if form.non_field_errors %}
+              {% for error in form.non_field_errors %} 
+                  <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                  </div>
+              {% endfor %}
+          {% endif %}
+          <div class="mb-3">
+            <label for="id_username" class="form-label">Username:</label>
+            {% render_field form.username placeholder=form.username.label class+="form-control" %}
+          </div>
+          <div class="mb-3">
+            <label for="id_password" class="form-label">Password:</label>
+            {% render_field form.password placeholder=form.password.label class+="form-control" %}
+          </div>
+          <input type="submit" value="Login" class="btn btn-primary">
+          <a class="btn btn-secondary" href="{% url 'sign-up' %}">Register</a>
+        </form>
+  </div>
+</div>
+{% endblock content %}

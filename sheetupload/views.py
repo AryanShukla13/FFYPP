@@ -1,18 +1,39 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from .models import Person
+from .resources import PersonResource
+from django.contrib import messages
+from tablib import Dataset
+from django.http import HttpResponse
+
+
 from django.views.generic import View
 from coursetable.models import CourseTable
 from .forms import CustomUserForm
-from django.views.generic import TemplateView
-# from django.core.files.storage import FilesSystemStorage
+# from django.views.generic import TemplateView
 
-# from django.template import loader
-# from django.urls import reverse
-# from .models import Accounts
-
-# Create your views here.
 def home(request):
     return render(request, 'accounts\dashboard.html')
+
+def simple_upload(request):
+    if request.method == 'POST':
+        person_resource = PersonResource()
+        dataset = Dataset()
+        new_person = request.FILES['myfile']
+
+        if not new_person.name.endswith('xlsx'):
+            messages.info(request,'wrong format')
+            return render(request,'upload.html')
+
+        imported_data = dataset.load(new_person.read(),format ='xlsx')
+        for data in imported_data:
+            value = Person(
+                data[0],
+                data[1],
+                data[2],
+                data[3]
+                )
+            value.save()
+    return render(request,'upload.html')
 
 def edit(request):
     return render(request, 'accounts\edit.html')
@@ -20,6 +41,7 @@ def edit(request):
 # def sheet(request):
 #     if request.method == 'POST':
 #         uploaded_file = request.FILES['document']
+        
 #         # fs = FilesSystemStorage()
 #         # name = fs.save(uploaded_file.name, uploaded_file)
 #         # url = fs.url(name)

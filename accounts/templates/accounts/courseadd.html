@@ -1,0 +1,29 @@
+<form action="addrecord/" method="post">
+    {% csrf_token %}
+    Code:<br>
+    <input name="Code">
+    <br><br>
+    CourseTitle :<br>
+    <input name="CourseTitle">
+    <br><br>
+    CoreElective :<br>
+    <input name="CoreElective">
+    <br><br>
+    TotalMarks :<br>
+    <input name="TotalMarks">
+    <br><br>
+    CourseOwner :<br>
+    <input name="CourseOwner">
+    <br><br>
+    CourseReviewer :<br>
+    <input name="CourseReviewer">
+    <br><br>
+    Mode:<br>
+    <input name="Mode">
+    <br><br>
+    ManageSectionCourseInstructor:<br>
+    <input name="ManageSectionCourseInstructor">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+

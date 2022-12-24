@@ -37,6 +37,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="/contact">CONTACT US</a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/upload">SHEET UPLOAD</a>
+              </li>
             </ul>
             
             <!-- <form class="d-flex" role="search">
@@ -171,22 +175,24 @@
             </ul>
           </div> -->
 
-
+          
            <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-success" type="submit">Search</button>
           </form>
-           
-          <button type="button" class="btn btn-success" style="margin:5px;">Add</button> 
+          <a href="/courseadd">add1</a>
+          {% comment %} <a href="/add1">add1</a> {% endcomment %}
+          {% comment %} <button type="button" class="btn btn-success" style="margin:5px;">Add</button>  {% endcomment %}
         </div>
         </div>
       </nav>
-      
+      {% comment %} <a href="/add">add</a> {% endcomment %}
+      {% block content%}
       <table class="table table-bordered" style="margin: 3%; width: fit-content;" >
 
         <thead>
           <tr>
-            <th scope="col">S.NO.</th>
+            {% comment %} <th scope="col">S.NO.</th> {% endcomment %}
             <th scope="col">Code</th>
             <th scope="col">Course Title</th>
             <th scope="col">Core/Elective</th>
@@ -200,37 +206,29 @@
 
           </tr>
         </thead>
+        
         <tbody>
+          {% for n in courseTableData %}
           <tr>
-            <th scope="row">1</th>
-            <td>KAS401</td>
-            <td>Technical Communication</td>
-            <td>Theory</td>
-            <td>3</td>
-            <td>150</td>
-            <td>Dr. Lata Singh</td>
-            <td>Dr. Lata Singh</td>
-            <td>Theory</td>
-            <td>Add/Edit</td>
-
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>KEE402</td>
-            <td>Electrical Machines-I</td>
-            <td>Core</td>
-            <td>4</td>
-            <td>150</td>
-            <td>Mr. Gurpreet Singh</td>
-            <td>Dr. Hemant Ahuja</td>
-            <td>Theory</td>
-            <td>Add/Edit</td>
+            
+            <td><strong>{{n.course_code}}</strong></td>
+            <td>{{n.course_title}}</td>
+            <td>{{n.course_core_elective}}</td>
+            <td>{{n.course_marks}}</td>
+            <td>{{n.course_owner}}</td>
+            <td>{{n.course_reviewer}}</td>
+            <td>{{n.course_mode}}</td>
+            <td>{{n.course_instructor}}</td>
+            <td><a href="/edit">edit</a></td>
+            {% comment %} <td><a href = "/edit" target="_blank">edit</a></td> {% endcomment %}
             
           </tr>
-
+          {% endfor %}
         </tbody>
+        
       </table>
-    
+      
+      {% endblock %}
     
   
     <!-- {% if messages %}
@@ -325,7 +323,7 @@
       </div>
   </form> -->
 
-  <form>
+  {% comment %} <form>
     <div class="row align-items-center g-3" style="margin: 3%; width: fit-content;">
       <div class="col-md-auto col-12">
         <label for="Curriculum">Curriculum: </label>
@@ -529,7 +527,7 @@
         </label>
       </div>
   </div>
-  </form>
+  </form> {% endcomment %}
     <!-- <form class="form-inline" action="/action_page.php">
       <div class="form-group">
         <label for="email">Email address:</label>

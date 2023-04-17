@@ -29,8 +29,11 @@ def edit(request):
 def courseadd(request):
     return render(request, 'accounts\courseadd.html')
 
+def xyz(request):
+    return render(request, 'accounts/xyz.html')
 
 def course(request):
+    print('file is here')
     courseTableData = CourseTable.objects.all()
     data = {
         "courseTableData" : courseTableData

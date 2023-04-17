@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'coursetable',
     'import_export',
     'sheetupload',
+    'sessional',
 ]
 
 MIDDLEWARE = [

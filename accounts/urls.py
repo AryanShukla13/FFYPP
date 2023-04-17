@@ -16,5 +16,7 @@ urlpatterns = [
     path('edit/' , views.edit),
     path('courseadd/', views.courseadd),
     path('upload/', views.simple_upload),
+    path('xyz/', views.xyz),
+    path('studentData/', views.studentData),
 ]
 

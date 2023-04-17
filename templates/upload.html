@@ -1,4 +1,4 @@
-{% if messages %}
+{% comment %} {% if messages %}
 {% for message in messages %}
 <div class="alert alert-{{ message.tags }}" role = "alert">
     <p{% if message.tags %} class=""{% endif %}>{{ message }}</p>
@@ -13,4 +13,1122 @@
         <button type = "submit"> Upload</button>
         <h2>
             Please Upload Excel file</h2>
+    </form> {% endcomment %}
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Calculation : Calculation </title>
+        <meta charset ="windows-1252">
+        <meta name= "viewport" content="widhth=device-widhth, initial-scale=1.0">
+
+        <script>
+
+            let oOneA = 0,oOneB = 0,oOneC = 0,oTwoA = 0,oTwoB = 0,oTwoC = 0,oTwoD = 0, oTwoE = 0,
+            oThreeA = 0,oThreeB = 0,oTotalSum = 0, 
+
+            countOneA = 0, countOneB = 0, countOneC = 0, countTwoA = 0,
+            countTwoB = 0, countTwoC = 0, countTwoD = 0, countTwoE = 0, countThreeA = 0, countThreeB = 0,
+
+            tcountOneA = 0, tcountOneB = 0, tcountOneC = 0, tcountTwoA = 0, tcountTwoB = 0, tcountTwoC = 0,
+            tcountTwoD = 0, tcountTwoE = 0, tcountThreeA = 0, tcountThreeB = 0, 
+            
+            countCoOne = 0, countCoTwo = 0, countCoThree = 0, countCoFour = 0, countCoFive = 0,
+            
+            tNoCoOne = 0, tNoCoTwo = 0, tNoCoThree = 0, tNoCoFour = 0, tNoCoFive = 0,
+
+            countOfCoOne = 0, countOfCoTwo = 0, countOfCoThree = 0, countOfCoFour = 0, countOfCoFive = 0,
+
+            tNoOfCoOne = 0, tNoOfCoTwo = 0, tNoOfCoThree = 0, tNoOfCoFour = 0, tNoOfCoFive = 0
+            ;
+
+
+
+            function callvalue(){
+
+                //1A
+
+                var iOneA = parseInt(document.getElementById("oneA").value);
+                var iTOneA = parseInt(document.getElementById('toneA').value);
+                oOneA = oOneA + iOneA + iTOneA;
+                
+                if(iOneA > 1.56 && iOneA != isNaN()){
+                  countOneA = countOneA + 1;
+                  tcountOneA = tcountOneA + 1;
+                  //document.getElementById('result'). value = countOneA;
+                  //document.getElementById("result").value = countOneA;
+                  console.log(countOneA)
+                  
+                }
+                else if(iOneA < 1.56){
+                    tcountOneA = tcountOneA + 1;
+                }
+                else{
+                    console.log("Absent");
+                }
+
+                if(iTOneA > 1.56 && iTOneA != isNaN()){
+                    countOneA = countOneA + 1;
+                    tcountOneA = tcountOneA + 1;
+                }
+                else if(iTOneA < 1.56){
+                    tcountOneA = tcountOneA + 1;
+                }
+                else{
+                    console.log("Yo bhi Absent");
+                    //document.getElementById('result'). value = countOneA;
+                    //console.log(countOneA);
+                }
+
+                let pOneA = 0;
+                pOneA = (countOneA / tcountOneA) * 100;
+                let operOneA = document.getElementById('coOOneA').value;
+
+                if(operOneA === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + pOneA;
+                }
+                if(operOneA === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + pOneA;
+                }
+                if(operOneA === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + pOneA;
+                }
+                if(operOneA === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + pOneA;
+                }
+                if(operOneA === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + pOneA;
+                }
+
+                document.getElementById('tNoStuAtemptQuesOneA'). value = tcountOneA;
+                document.getElementById('NoOStuMoreThanTargetuesOneA'). value = countOneA;
+                document.getElementById('PerOfStudeQuesOneA'). value = pOneA;
+                //document.getElementById('cOfCO').value = countOfCoOne;
+                //document.getElementById('tNcOfCO').value = tNoOfCoOne;
+
+                //1B
+        
+                var ioneB = parseInt(document.getElementById("oneB").value);
+                var tIoneB = parseInt(document.getElementById("toneB").value);
+                oOneB = oOneB + ioneB;
+
+                if(ioneB > 1.56 && ioneB != isNaN()){
+                  countOneB = countOneB + 1;
+                  tcountOneB = tcountOneB + 1;
+                }
+                else if(ioneB < 1.56){
+                    tcountOneB = tcountOneB + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(tIoneB > 1.56 && tIoneB != isNaN()){
+                    countOneB = countOneB + 1;
+                    tcountOneB = tcountOneB + 1;
+                  }
+                else if(tIoneB < 1.56){
+                    tcountOneB = tcountOneB + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                let pOneB = 0;
+                pOneB = (countOneB / tcountOneB) * 100;
+                let operOneB = document.getElementById('coOOneB').value;
+
+                if(operOneB === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + pOneB;
+                }
+                if(operOneB === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + pOneB;
+                }
+                if(operOneB === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + pOneB;
+                }
+                if(operOneB === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + pOneB;
+                }
+                if(operOneB === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + pOneB;
+                }
+
+
+                document.getElementById('tNoStuAtemptQuesOneB'). value = tcountOneB;
+                document.getElementById('NoOStuMoreThanTargetuesOneB'). value = countOneB;
+                document.getElementById('PerOfStudeQuesOneB'). value = pOneB;
+
+
+
+                //1C
+
+                var ioneC = parseInt(document.getElementById("oneC").value);
+                var tIoneC = parseInt(document.getElementById('toneC').value);
+                oOneC = oOneC + ioneC;
+
+                if(ioneC > 1.56 && ioneC != isNaN()){
+                    countOneC = countOneC + 1;
+                    tcountOneC = tcountOneC + 1;
+                  }
+                else if(ioneC < 1.56){
+                    tcountOneC = tcountOneC + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(tIoneC > 1.56 && tIoneC != isNaN()){
+                    countOneC = countOneC + 1;
+                    tcountOneC = tcountOneC + 1;
+                  }
+                else if(tIoneC < 1.56){
+                    tcountOneC = tcountOneC + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                let pOneC = 0;
+                pOneC = (countOneC / tcountOneC) * 100;
+                let operOneC = document.getElementById('coOOneC').value;
+
+                if(operOneC === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + pOneC;
+                }
+                if(operOneC === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + pOneC;
+                }
+                if(operOneC === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + pOneC;
+                }
+                if(operOneC === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + pOneC;
+                }
+                if(operOneC === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + pOneC;
+                }
+                document.getElementById('tNoStuAtemptQuesOneC'). value = tcountOneC;
+                document.getElementById('NoOStuMoreThanTargetuesOneC'). value = countOneC;
+                document.getElementById('PerOfStudeQuesOneC'). value = pOneC;
+
+
+                //2A
+
+                var itwoA = parseInt(document.getElementById("twoA").value);
+                var tiTwoA = parseInt(document.getElementById("tTwoA").value);
+                oTwoA = oTwoA + itwoA;
+
+                if(itwoA > 3.9 && itwoA != isNaN()){
+                    countTwoA = countTwoA + 1;
+                    tcountTwoA = tcountTwoA + 1;
+                  }
+                else if(itwoA < 3.9){
+                    tcountTwoA = tcountTwoA + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(tiTwoA > 3.9 && tiTwoA != isNaN()){
+                    countTwoA = countTwoA + 1;
+                    tcountTwoA = tcountTwoA + 1;
+                  }
+                else if(tiTwoA < 3.9){
+                    tcountTwoA = tcountTwoA + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                let ptwoA = 0;
+                ptwoA = (countTwoA / tcountTwoA) * 100;
+                let operTwoA = document.getElementById('coOTwoA').value;
+
+                if(operTwoA === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + ptwoA;
+                }
+                if(operTwoA === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + ptwoA;
+                }
+                if(operTwoA === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + ptwoA;
+                }
+                if(operTwoA === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + ptwoA;
+                }
+                if(operTwoA === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + ptwoA;
+                }
+                document.getElementById('tNoStuAtemptQuesTwoA'). value = tcountTwoA;
+                document.getElementById('NoOStuMoreThanTargetuesTwoA'). value = countTwoA;
+                document.getElementById('PerOfStudeQuesTwoA'). value = ptwoA;
+
+
+
+                //2B
+
+                var itwoB = parseInt(document.getElementById("twoB").value);
+                var tiTwoB = parseInt(document.getElementById("tTwoB").value);
+                oTwoB = oTwoB + itwoB;
+
+                if(itwoB > 3.9 && itwoB != isNaN()){
+                    countTwoB = countTwoB + 1;
+                    tcountTwoB = tcountTwoB + 1;
+                  }
+                else if(itwoB < 3.9){
+                    tcountTwoB = tcountTwoB + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(tiTwoB > 3.9 && tiTwoB != isNaN()){
+                    countTwoB = countTwoB + 1;
+                    tcountTwoB = tcountTwoB + 1;
+                  }
+                else if(tiTwoB < 3.9){
+                    tcountTwoB = tcountTwoB + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                let ptwoB = 0;
+                ptwoB = (countTwoB / tcountTwoB) * 100;
+                let operTwoB = document.getElementById('coOTwoB').value;
+
+                if(operTwoB === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + ptwoB;
+                }
+                if(operTwoB === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + ptwoB;
+                }
+                if(operTwoB === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + ptwoB;
+                }
+                if(operTwoB === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + ptwoB;
+                }
+                if(operTwoB === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + ptwoB;
+                }
+                document.getElementById('tNoStuAtemptQuesTwoB'). value = tcountTwoB;
+                document.getElementById('NoOStuMoreThanTargetuesTwoB'). value = countTwoB;
+                document.getElementById('PerOfStudeQuesTwoB'). value = ptwoB;
+
+                
+                //2C
+
+                var itwoC = parseInt(document.getElementById("twoC").value);
+                var tiTwoC = parseInt(document.getElementById("tTwoC").value);
+                oTwoC = oTwoC + itwoC;
+                if(itwoC > 3.9 && itwoC != isNaN()){
+                    countTwoC = countTwoC + 1;
+                    tcountTwoC = tcountTwoC + 1;
+                  }
+                else if(itwoC < 3.9){
+                    tcountTwoC = tcountTwoC + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(itwoC > 3.9 && itwoC != isNaN()){
+                    countTwoC = countTwoC + 1;
+                    tcountTwoC = tcountTwoC + 1;
+                  }
+                else if(itwoC < 3.9){
+                    tcountTwoC = tcountTwoC + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                let ptwoC = 0;
+                ptwoC = (countTwoC / tcountTwoC) * 100;
+                let operTwoC = document.getElementById('coOTwoC').value;
+
+                if(operTwoC === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + ptwoC;
+                }
+                if(operTwoC === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + ptwoC;
+                }
+                if(operTwoC === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + ptwoC;
+                }
+                if(operTwoC === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + ptwoC;
+                }
+                if(operTwoC === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + ptwoC;
+                }
+                
+                document.getElementById('tNoStuAtemptQuesTwoC'). value = tcountTwoC;
+                document.getElementById('NoOStuMoreThanTargetuesTwoC'). value = countTwoC;
+                document.getElementById('PerOfStudeQuesTwoC'). value = ptwoC;
+
+
+                //2D
+
+                var itwoD = parseInt(document.getElementById("twoD").value);
+                var tiTwoD = parseInt(document.getElementById("tTwoD").value);
+                oTwoD = oTwoD + itwoD;
+
+                if(itwoD > 3.9 && itwoD != isNaN()){
+                    countTwoD = countTwoD + 1;
+                    tcountTwoD = tcountTwoD + 1;
+                  }
+                else if(itwoD < 3.9){
+                    tcountTwoD = tcountTwoD + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(tiTwoD > 3.9 && tiTwoD != isNaN()){
+                    countTwoD = countTwoD + 1;
+                    tcountTwoD = tcountTwoD + 1;
+                  }
+                else if(tiTwoD < 3.9){
+                    tcountTwoD = tcountTwoD + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                let ptwoD = 0;
+                ptwoD = (countTwoD / tcountTwoD) * 100;
+                let operTwoD = document.getElementById('coOTwoD').value;
+
+                if(operTwoD === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + ptwoD;
+                }
+                if(operTwoD === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + ptwoD;
+                }
+                if(operTwoD === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + ptwoD;
+                }
+                if(operTwoD === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + ptwoD;
+                }
+                if(operTwoD === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + ptwoD;
+                }
+
+                document.getElementById('tNoStuAtemptQuesTwoD'). value = tcountTwoD;
+                document.getElementById('NoOStuMoreThanTargetuesTwoD'). value = countTwoD;
+                document.getElementById('PerOfStudeQuesTwoD'). value = ptwoC;
+
+
+                //2E
+
+                var itwoE = parseInt(document.getElementById("twoE").value);
+                var tiTwoE = parseInt(document.getElementById("tTwoE").value);
+                oTwoE = oTwoE + itwoE;
+                if(itwoE > 3.9 && itwoE != isNaN()){
+                    countTwoE = countTwoE + 1;
+                    tcountTwoE = tcountTwoE + 1;
+                  }
+                else if(itwoE < 3.9){
+                    tcountTwoE = tcountTwoE + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(tiTwoE > 3.9 && tiTwoE != isNaN()){
+                    countTwoE = countTwoE + 1;
+                    tcountTwoE = tcountTwoE + 1;
+                  }
+                else if(tiTwoE < 3.9){
+                    tcountTwoE = tcountTwoE + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                let ptwoE = 0;
+                ptwoE = (countTwoE / tcountTwoE) * 100;
+                let operTwoE = document.getElementById('coOTwoE').value;
+
+                if(operTwoE === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + ptwoC;
+                }
+                if(operTwoE === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + ptwoE;
+                }
+                if(operTwoE === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + ptwoE;
+                }
+                if(operTwoE === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + ptwoE;
+                }
+                if(operTwoE === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + ptwoE;
+                }
+                document.getElementById('tNoStuAtemptQuesTwoE'). value = tcountTwoE;
+                document.getElementById('NoOStuMoreThanTargetuesTwoE'). value = countTwoE;
+                document.getElementById('PerOfStudeQuesTwoE'). value = ptwoE;
+
+
+                //3A
+
+                var iThreeA = parseInt(document.getElementById("threeA").value);
+                var tiThreeA = parseInt(document.getElementById("tThreeA").value);
+                oThreeA = oThreeA + iThreeA;
+                if(iThreeA > 7.02 && iThreeA != isNaN()){
+                    countThreeA = countThreeA + 1;
+                    tcountThreeA = tcountThreeA + 1;
+                }
+                else if(iThreeA < 7.02){
+                    tcountThreeA = tcountThreeA + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(tiThreeA > 7.02 && tiThreeA != isNaN()){
+                    countThreeA = countThreeA + 1;
+                    tcountThreeA = tcountThreeA + 1;
+                  }
+                else if(tiThreeA < 7.02){
+                    tcountThreeA = tcountThreeA + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+                let pthreeA = 0;
+                pthreeA = (countThreeA / tcountThreeA) * 100;
+                let operThreeA = document.getElementById('coOThreeA').value;
+
+                if(operThreeA === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + pthreeA;
+                }
+                if(operThreeA === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + pthreeA;
+                }
+                if(operThreeA === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + pthreeA;
+                }
+                if(operThreeA === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + pthreeA;
+                }
+                if(operThreeA === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + pthreeA;
+                }
+
+                document.getElementById('tNoStuAtemptQuesThreeA'). value = tcountThreeA;
+                document.getElementById('NoOStuMoreThanTargetuesThreeA'). value = countThreeA;
+                document.getElementById('PerOfStudeQuesThreeA'). value = pthreeA;
+
+
+                //3B
+
+                var iThreeB = parseInt(document.getElementById("threeB").value);
+                var tiThreeB = parseInt(document.getElementById("tThreeB").value);
+                oThreeA = oThreeA + iThreeA;
+                if(iThreeB > 7.02 && iThreeB != isNaN()){
+                    countThreeB = countThreeB + 1;
+                    tcountThreeB = tcountThreeB + 1;
+                  }
+                else if(iThreeB < 7.02){
+                    tcountThreeB = tcountThreeB + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+
+                if(tiThreeB > 7.02 && tiThreeB != isNaN()){
+                    countThreeB = countThreeB + 1;
+                    tcountThreeB = tcountThreeB + 1;
+                  }
+                else if(tiThreeB < 7.02){
+                    tcountThreeB = tcountThreeB + 1;
+                }
+                else{
+                    console.log("Chora is absent");
+                }
+                let pthreeB = 0;
+                pthreeB = (countThreeB / tcountThreeB) * 100;
+                let operThreeB = document.getElementById('coOThreeB').value;
+
+                if(operThreeB === 'CO1'){
+                    countOfCoOne = countOfCoOne + 1;
+                    tNoOfCoOne = tNoOfCoOne + pthreeB;
+                }
+                if(operThreeB === 'CO2'){
+                    countOfCoTwo = countOfCoTwo + 1;
+                    tNoOfCoTwo = tNoOfCoTwo + pthreeB;
+                }
+                if(operThreeB === 'CO3'){
+                    countOfCoThree = countOfCoThree + 1;
+                    tNoOfCoThree = tNoOfCoThree + pthreeB;
+                }
+                if(operThreeB === 'CO4'){
+                    countOfCoFour = countOfCoFour + 1;
+                    tNoOfCoFour = tNoOfCoFour + pthreeB;
+                }
+                if(operThreeB === 'CO5'){
+                    countOfCoFive = countOfCoFive + 1;
+                    tNoOfCoFive = tNoOfCoFive + pthreeB;
+                }
+
+                document.getElementById('tNoStuAtemptQuesThreeB'). value = tcountThreeB;
+                document.getElementById('NoOStuMoreThanTargetuesThreeB'). value = countThreeB;
+                document.getElementById('PerOfStudeQuesThreeB'). value = pthreeB;
+        
+        
+                //document.getElementById('result'). value = countOneA;
+
+                var levelOfCoOne = document.getElementById('AverageOfCoOne').value = tNoOfCoOne / countOfCoOne;
+                var levelOfCoTwo = document.getElementById('AverageOfCoTwo').value = tNoOfCoTwo / countOfCoTwo;
+                var levelOfCoThree = document.getElementById('AverageOfCoThree').value = tNoOfCoThree / countOfCoThree;
+                var levelOfCoFour = document.getElementById('AverageOfCoFour').value = tNoOfCoFour / countOfCoFour;
+                var levelOfCoFive = document.getElementById('AverageOfCoFive').value = tNoOfCoFive / countOfCoFive;
+                
+
+                //Level of CO1
+                if(levelOfCoOne > 35){
+                    if(levelOfCoOne >= 35 && levelOfCoOne <45){
+                        document.getElementById('levelOFCOONE').value = 1;
+                    }
+                    else if(levelOfCoOne >= 45 && levelOfCoOne <55){
+                        document.getElementById('levelOFCOONE').value = 2;
+                    }
+                    else{
+                        document.getElementById('levelOFCOONE').value = 3;
+                    }
+                }
+                
+
+
+                //Level of CO2
+                if(levelOfCoTwo > 35){
+                    if(levelOfCoTwo >= 35 && levelOfCoTwo <45){
+                        document.getElementById('levelOFCOTWO').value = 1;
+                    }
+                    else if(levelOfCoTwo >= 45 && levelOfCoTwo <55){
+                        document.getElementById('levelOFCOTWO').value = 2;
+                    }
+                    else{
+                        document.getElementById('levelOFCOTWO').value = 3;
+                    }
+                }
+                
+
+
+                //level of CO3
+                if(levelOfCoThree > 35){
+                    if(levelOfCoThree >= 35 && levelOfCoThree < 45){
+                        document.getElementById('levelOFCOTHREE').value = 1;
+                    }
+                    else if(levelOfCoThree >= 45 && levelOfCoThree <55){
+                        document.getElementById('levelOFCOTHREE').value = 2;
+                    }
+                    else{
+                        document.getElementById('levelOFCOTHREE').value = 3;
+                    }
+                }
+                
+
+                
+                //level of CO4
+                if(levelOfCoFour > 35){
+                    if(levelOfCoFour >= 35 && levelOfCoFour <45){
+                        document.getElementById('levelOFCOFOUR').value = 1;
+                    }
+                    else if(levelOfCoFour >= 45 && levelOfCoFour <55){
+                        document.getElementById('levelOFCOFOUR').value = 2;
+                    }
+                    else{
+                        document.getElementById('levelOFCOFOUR').value = 3;
+                    }
+                } 
+                
+
+                //level of CO5
+                if(levelOfCoFive > 35){
+                    if(levelOfCoFive >= 35 && levelOfCoFive <45){
+                        document.getElementById('levelOFCOFIVE').value = 1;
+                    }
+                    else if(levelOfCoFive >= 45 && levelOfCoFive <55){
+                        document.getElementById('levelOFCOFIVE').value = 2;
+                    }
+                    else{
+                        document.getElementById('levelOFCOFIVE').value = 3;
+                    }
+                }
+                
+
+              }
+
+
+            {% comment %} function calc(){
+                let n1 = parseInt(document.getElementById('n1').value);
+                let n2 = parseInt(document.getElementById('n2').value);
+                var oper = document.getElementById('cos').value;
+                document.getElementById('result'). value = n1+n2;
+            } {% endcomment %}
+
+            {% comment %} function calc(){
+                let n1 = parseInt(document.getElementById('n1').value);
+                let n2 = parseInt(document.getElementById('n2').value);
+                let oper = document.getElementById('operators').value;
+
+                if(oper === '+'){
+                    document.getElementById('result').value = n1+n2;
+                }
+
+            } {% endcomment %}
+
+        </script>
+
+    </head>
+
+    <body>
+        {% comment %} <input type = "number" id = "n1"/><br><br>
+        <input type = "number" id = "n2"/><br><br> {% endcomment %}
+
+        <h3> Student1 </h3><br>
+        {% comment %} NO Of Students: <input type = "text" id ="nOS"/> {% endcomment %}
+        Q-1-a : <input type = "text" id = "oneA" /><t> 
+        Q-1-a <select id = "coOOneA">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select> <br><br>
+
+        Q-1-b : <input type = "text" id = "oneB" /><t> 
+        Q-1-b <select id = "coOOneB">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br>
+
+        Q-1-c : <input type = "text" id = "oneC" /><t> 
+        Q-1-c <select id = "coOOneC">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br>
+
+        Q-2-a : <input type = "text" id = "twoA" /><t> 
+        Q-2-a <select id = "coOTwoA">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br>
+
+        Q-2-b : <input type = "text" id = "twoB" /><t> 
+        Q-2-b <select id = "coOTwoB">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br>
+
+        Q-2-c : <input type = "text" id = "twoC" /><t> 
+        Q-2-c <select id = "coOTwoC">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br>
+
+        Q-2-d : <input type = "text" id = "twoD" /><t> 
+            Q-2-d <select id = "coOTwoD">
+                <option value="CO1">CO1</option>
+                <option value="CO2">CO2</option>
+                <option value="CO3">CO3</option>
+                <option value="CO4">CO4</option>
+                <option value="CO5">CO5</option>
+            </select><br><br>
+
+        Q-2-e : <input type = "text" id = "twoE" /><t> 
+        Q-2-e <select id = "coOTwoE">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br>
+
+        Q-3-a : <input type = "text" id = "threeA" /><t> 
+        Q-3-a <select id = "coOThreeA">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br>
+
+        Q-3-b : <input type = "text" id = "threeB" /><t> 
+        Q-3-b <select id = "coOThreeB">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br><br><br>
+
+        {% comment %} <button onclick="callvalue();">calculate</button> {% endcomment %}
+        {% comment %} <input type = "number" id="result"/><br><br> {% endcomment %}
+        {% comment %} <select id = "cos">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select>  {% endcomment %}
+
+
+        
+
+        {% comment %} <button onclick="callvalue();">calculate</button>
+        <input type = "number" id="result"/> {% endcomment %}
+
+    </body>
+
+    <body>
+        {% comment %} <input type = "number" id = "n1"/><br><br>
+        <input type = "number" id = "n2"/><br><br> {% endcomment %}
+
+        <h3> Student2 </h3><br>
+        {% comment %} NO Of Students: <input type = "text" id ="nOS"/> {% endcomment %}
+        Q-1-a : <input type = "text" id = "toneA" /><t> <br><br>
+        {% comment %} Q-1-a <select id = "coTOneA">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select> <br><br> {% endcomment %}
+
+        Q-1-b : <input type = "text" id = "toneB" /><t> <br><br>
+        {% comment %} Q-1-b <select id = "coTOneB">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br> {% endcomment %}
+
+        Q-1-c : <input type = "text" id = "toneC" /><t> <br><br>
+        {% comment %} Q-1-c <select id = "coTOneC">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br> {% endcomment %}
+
+        Q-2-a : <input type = "text" id = "tTwoA" /><t><br><br> 
+        {% comment %} Q-2-a <select id = "coTTwoA">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br> {% endcomment %}
+
+        Q-2-b : <input type = "text" id = "tTwoB" /><t><br><br> 
+        {% comment %} Q-2-b <select id = "coTTwoB">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br> {% endcomment %}
+
+        Q-2-c : <input type = "text" id = "tTwoC" /><t> <br><br>
+        {% comment %} Q-2-c <select id = "coTTwoC">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br> {% endcomment %}
+
+        Q-2-d : <input type = "text" id = "tTwoD" /><t> <br><br>
+            {% comment %} Q-2-d <select id = "coTTwoD">
+                <option value="CO1">CO1</option>
+                <option value="CO2">CO2</option>
+                <option value="CO3">CO3</option>
+                <option value="CO4">CO4</option>
+                <option value="CO5">CO5</option>
+            </select><br><br> {% endcomment %}
+
+        Q-2-e : <input type = "text" id = "tTwoE" /><t> <br><br>
+        {% comment %} Q-2-e <select id = "coTTwoE">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br> {% endcomment %}
+
+        Q-3-a : <input type = "text" id = "tThreeA" /><t><br><br>
+        {% comment %} Q-3-a <select id = "coTThreeA">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br> {% endcomment %}
+
+        Q-3-b : <input type = "text" id = "tThreeB" /><t><br><br>
+        {% comment %} Q-3-b <select id = "coTThreeB">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select><br><br><br><br> {% endcomment %}
+
+        {% comment %} <button onclick="callvalue();">calculate</button> {% endcomment %}
+        {% comment %} <input type = "number" id="result"/><br><br> {% endcomment %}
+        {% comment %} <select id = "cos">
+            <option value="CO1">CO1</option>
+            <option value="CO2">CO2</option>
+            <option value="CO3">CO3</option>
+            <option value="CO4">CO4</option>
+            <option value="CO5">CO5</option>
+        </select>  {% endcomment %}
+
+
+        
+
+        <button onclick="callvalue();">calculate</button><br><br>
+
+        <h4> CO's LEVEL </h4>
+        Level Of CO1 : <input type = "number" id = "levelOFCOONE"/><br><br>
+        Level Of CO2 : <input type = "number" id = "levelOFCOTWO"/><br><br>
+        Level of CO3 : <input type = "number" id = "levelOFCOTHREE"/><br><br>
+        Level of CO4 : <input type = "number" id = "levelOFCOFOUR"/><br><br>
+        Level of CO5 : <input type = "number" id = "levelOFCOFIVE"/><br><br>
+
+        <h4> CO Calculations </h4>
+        Average of CO1 : <input type = "number" id = "AverageOfCoOne"/><br><br>
+        Average of CO2 : <input type = "number" id = "AverageOfCoTwo"/><br><br>
+        Average of CO3 : <input type = "number" id = "AverageOfCoThree"/><br><br>
+        Average of CO4 : <input type = "number" id = "AverageOfCoFour"/><br><br>
+        Average of CO5 : <input type = "number" id = "AverageOfCoFive"/><br><br>
+
+
+        <h4> Q-1-A </h4>
+        Total Number Of students Attempted Q-1-A :<input type = "number" id = "tNoStuAtemptQuesOneA"/><br><br>
+        Number of Students More than target Q-1-A :<input type = "number" id = "NoOStuMoreThanTargetuesOneA"/><br><br>
+        Percentage of Students More than Target of Q-1-A :<input type = "number" id = "PerOfStudeQuesOneA" + "%"/><br><br>
+        Count of CO till this question : <input type = "number" id = "cOfCO"/><br><br>
+        Total Number of this till this question: <input type = "number" id = "tNcOfCO"/><br><br>
+
+        <h4> Q-1-B </h4>
+        Total Number Of students Attempted Q-1-B :<input type = "number" id = "tNoStuAtemptQuesOneB"/><br><br>
+        Number of Students More than target Q-1-B :<input type = "number" id = "NoOStuMoreThanTargetuesOneB"/><br><br>
+        Percentage of Students More than Target of Q-1-B :<input type = "number" id = "PerOfStudeQuesOneB" + "%"/><br><br>
+
+
+        <h4> Q-1-C </h4>
+        Total Number Of students Attempted Q-1-C :<input type = "number" id = "tNoStuAtemptQuesOneC"/><br><br>
+        Number of Students More than target Q-1-C :<input type = "number" id = "NoOStuMoreThanTargetuesOneC"/><br><br>
+        Percentage of Students More than Target of Q-1-C :<input type = "number" id = "PerOfStudeQuesOneC" + "%"/><br><br>
+
+        <h4> Q-2-A </h4>
+        Total Number Of students Attempted Q-2-A :<input type = "number" id = "tNoStuAtemptQuesTwoA"/><br><br>
+        Number of Students More than target Q-2-A :<input type = "number" id = "NoOStuMoreThanTargetuesTwoA"/><br><br>
+        Percentage of Students More than Target of Q-2-A :<input type = "number" id = "PerOfStudeQuesTwoA" + "%"/><br><br>
+
+        <h4> Q-2-B </h4>
+        Total Number Of students Attempted Q-2-B :<input type = "number" id = "tNoStuAtemptQuesTwoB"/><br><br>
+        Number of Students More than target Q-2-B :<input type = "number" id = "NoOStuMoreThanTargetuesTwoB"/><br><br>
+        Percentage of Students More than Target of Q-2-B :<input type = "number" id = "PerOfStudeQuesTwoB" + "%"/><br><br>
+
+        <h4> Q-2-C </h4>
+        Total Number Of students Attempted Q-2-C :<input type = "number" id = "tNoStuAtemptQuesTwoC"/><br><br>
+        Number of Students More than target Q-2-C :<input type = "number" id = "NoOStuMoreThanTargetuesTwoC"/><br><br>
+        Percentage of Students More than Target of Q-2-C :<input type = "number" id = "PerOfStudeQuesTwoC" + "%"/><br><br>
+
+        <h4> Q-2-D </h4>
+        Total Number Of students Attempted Q-2-D :<input type = "number" id = "tNoStuAtemptQuesTwoD"/><br><br>
+        Number of Students More than target Q-2-D :<input type = "number" id = "NoOStuMoreThanTargetuesTwoD"/><br><br>
+        Percentage of Students More than Target of Q-2-D :<input type = "number" id = "PerOfStudeQuesTwoD" + "%"/><br><br>
+
+        <h4> Q-2-E </h4>
+        Total Number Of students Attempted Q-2-E :<input type = "number" id = "tNoStuAtemptQuesTwoE"/><br><br>
+        Number of Students More than target Q-2-E :<input type = "number" id = "NoOStuMoreThanTargetuesTwoE"/><br><br>
+        Percentage of Students More than Target of Q-2-E :<input type = "number" id = "PerOfStudeQuesTwoE" + "%"/><br><br>
+
+        <h4> Q-3-A </h4>
+        Total Number Of students Attempted Q-3-A :<input type = "number" id = "tNoStuAtemptQuesThreeA"/><br><br>
+        Number of Students More than target Q-3-A :<input type = "number" id = "NoOStuMoreThanTargetuesThreeA"/><br><br>
+        Percentage of Students More than Target of Q-3-A :<input type = "number" id = "PerOfStudeQuesThreeA" + "%"/><br><br>
+
+        <h4> Q-3-B </h4>
+        Total Number Of students Attempted Q-3-B :<input type = "number" id = "tNoStuAtemptQuesThreeB"/><br><br>
+        Number of Students More than target Q-3-B :<input type = "number" id = "NoOStuMoreThanTargetuesThreeB"/><br><br>
+        Percentage of Students More than Target of Q-3-B :<input type = "number" id = "PerOfStudeQuesThreeB" + "%"/><br><br>
+
+    </body>
+</html>
+
+
+
+
+{% comment %} <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> ABES EC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" href="tablestyle.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script>
+      
+      var oOneA = 0,oOneB = 0,oOneC = 0,oTwoA = 0,oTwoB = 0,oTwoC = 0,oTwoD = 0, oTwoE = 0,
+      oThreeA = 0,OThreeB = 0,OTotalSum = 0, countOneA = 0, countOneB = 0, countOneC = 0, countTwoA = 0,
+      countTwoB = 0, countTwoC = 0, countTwoD = 0, countTwoE = 0, countThreeA = 0, countThreeB = 0;
+
+      function callvalue(){
+        var iOneA = document.getElementById("oneA").value;
+        oOneA = oOneA + iOneA;
+        if(ioneA > 1.56){
+          countOneA = countOneA + 1;
+          document.getElementById("result").value = countOneA;
+          console.log(countOneA)
+        }
+        else{
+          countOneA = countOneA + 0;
+          console.log(countOneA);
+        }
+
+        var ioneB = document.getElementById("oneB").value;
+        oOneB = oOneB + ioneB;
+        if(ioneB > 1.56){
+          countOneB = countOneB + 1;
+        }
+
+        var ioneC = document.getElementById("oneC").value;
+        oOneC = oOneC + ioneC;
+        if(ioneC > 1.56){
+          countOneC = countOneC + 1;
+        }
+
+        document.writeln("Total 1a number: " + oOneA);
+        document.writeln("Number of Students more than target number of question 1a: " + countOneA);
+        console.log(oOneA);
+
+        document.writeln("Total 1b number: " + oOneB);
+        document.writeln("Number of Students more than target number of question 1b: " + countOneB);
+        console.log(oOneB);
+
+        document.writeln("Total 1c number: " + oOneC);
+        document.writeln("Number of Students more than target number of question 1c: " + countOneC);
+        console.log(oOneC);
+
+
+        
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <h3> Student1 </h3><br>
+
+      Q-1-a : <input type = "number" id = "oneA" ><br>
+      Q-1-b : <input type = "number" id = "oneB" ><br>
+      Q-1-c : <input type = "number" id = "oneC" ><br>
+      Q-2-a : <input type = "number" id = "twoA" ><br>
+      Q-2-b : <input type = "number" id = "twoB" ><br>
+      Q-2-c : <input type = "number" id = "twoC" ><br>
+      Q-2-d : <input type = "number" id = "twoD" ><br>
+      Q-2-e : <input type = "number" id = "twoE" ><br>
+      Q-3-a : <input type = "number" id = "threeA" ><br>
+      Q-3-b : <input type = "number" id = "threeB" ><br>
+
+
+      <h3> Student2 </h3><br>
+
+      Q-1-a : <input type = "number" id = "oneA" ><br>
+      Q-1-b : <input type = "number" id = "oneB" ><br>
+      Q-1-c : <input type = "number" id = "oneC" ><br>
+      Q-2-a : <input type = "number" id = "twoA" ><br>
+      Q-2-b : <input type = "number" id = "twoB" ><br>
+      Q-2-c : <input type = "number" id = "twoC" ><br>
+      Q-2-d : <input type = "number" id = "twoD" ><br>
+      Q-2-e : <input type = "number" id = "twoE" ><br>
+      Q-3-a : <input type = "number" id = "threeA" ><br>
+      Q-3-b : <input type = "number" id = "threeB" ><br>
+
+      <br>
+      <button calculate = "callvalue();"> calculate</button>
+
+      <h3> Output Aayega </h3>
+      <input type = "text" id ="result"><br>
+
+      <br>
+      
+
     </form>
+  </body>
+</html> {% endcomment %}
+
+
